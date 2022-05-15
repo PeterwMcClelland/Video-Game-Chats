@@ -1,10 +1,10 @@
-# Tech Blog
+# Video Game Chats
 
-[![Github](https://img.shields.io/static/v1?label=Github&message=vicengs&color=yellow)](https://github.com/vicengs) [![Email](https://img.shields.io/static/v1?label=Email&message=Vicente&color=informational)](mailto:vicen1@hotmail.com) [![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)](http://choosealicense.com/licenses/mit/)
+[![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)](http://choosealicense.com/licenses/mit/)
 
 ## Description
   
-CMS-style blog site where developers can publish their blog posts and comment on other developers posts as well.
+Video Games chatrooms site where gamers can create their game chatrooms and chat on other developers chatrooms as well.
 
 ## Built with
 
@@ -22,7 +22,7 @@ CMS-style blog site where developers can publish their blog posts and comment on
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [Credits](#credits)
-* [Questions](#questions)
+* [Code](#code)
 * [License](#license)
 * [Screenshots](#screenshots)
 
@@ -34,12 +34,11 @@ Clone repository to local machine to use local.
 
 Execute into mysql source db.schema to create the dabase.
 Execute on project path the following command "npm start" to create the database structure (tables).
-Execute on project path the following command "npm run seed" to fill the database.
 Open Heroku link to view the deployed project.
 
 ## Live application
 
-https://immense-scrubland-37452.herokuapp.com/
+******************** PENDING ********************
 
 ## Contributing
 
@@ -47,29 +46,27 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ## Tests
 
-Validate helpers running the follow command "run test".
+Validate helper date format running the follow command "run test".
 
 ## Credits
 
-Made by Vicente Garcia Sepulveda
+Made by
 
-## Questions
+- Grace Marcoux
+- Anh Vuong
+- Vicente Garcia Sepulveda
+- Peter McClelland
+- Dylan Truong
 
-#### Github
-  
-- https://github.com/vicengs
+## Code
 
 #### Github repository
 
-- https://github.com/vicengs/Tech_Blog
+- https://github.com/vicengs/Video-Game-Chats
 
 #### SSH to clone:
 
     git@github.com:vicengs/Tech_Blog.git
-  
-#### E-mail
-  
-- For more questions contact me at vicen1@hotmail.com
 
 ## License
 
@@ -79,5 +76,4 @@ MIT License - A short and simple permissive license with conditions only requiri
     
 ![Server](/assets/images/server.jpg)
 ![Login](/assets/images/login.jpg)
-![Application](/assets/images/application.jpg)
-![Comments](/assets/images/comments.jpg)
+![Chatroom](/assets/images/chatroom.jpg)
