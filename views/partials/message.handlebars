@@ -7,16 +7,16 @@
 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 <div class="messages">
   {{#each this}}
-  <section class="message">
-        <div class="d-flex justify-content-start">
-          {{user.username}}
-        </div>
-        <div class="text-message d-flex justify-content-center">
-          {{message}}
-        </div>
-        <div class="d-flex justify-content-end">
-          {{format_date created_at}}
-        </div>
-  </section>
+    <section class="message">
+      <div class="d-flex justify-content-start">
+        {{user.username}}
+      </div>
+      <div class="text-message d-flex justify-content-center">
+        {{message}}
+      </div>
+      <div class="d-flex justify-content-end">
+        {{format_date created_at}}
+      </div>
+    </section>
   {{/each}}
 </div>

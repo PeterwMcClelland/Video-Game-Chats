@@ -19,9 +19,11 @@
       </div>
     </div>
   </form>
+{{else}}
+  <div class="d-flex justify-content-center">
+    <button class="btn-add bg-danger" onclick="window.location.href='/login'">Login For More</button>
+  </div>
 {{/if}}
 {{#if loggedIn }}
   <script src="/javascript/message.js"></script>
-{{else}}
-  <script src="/javascript/message-view.js"></script>
 {{/if }}
