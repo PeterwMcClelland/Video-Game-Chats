@@ -1,0 +1,40 @@
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Project  : Video Games Chat -->
+<!-- Team     : Dark Overlords   -->
+<!-- File     : edit-chatroom    -->
+<!-- Date     : 05/13/2022       -->
+<!-- Modified : 05/15/2022       -->
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class="d-flex justify-content-center">
+  <form class="edit-chat-form">
+    <div class="card">
+      <h3 class="card-header">Edit Chatroom</h3>
+      <div class="card-body chat-body">
+        <div class="card-title">
+          <label for="title">Title</label>
+        </div>
+        <input name="chat-title" type="text" value="{{chatroom.title}}" maxlength="80"/>
+        <div class="card-title">
+          <label for="content">Content</label>
+        </div>
+        <textarea id="description" name="description" maxlength="250">{{chatroom.description}}</textarea>
+        <div class="card-title">
+          <label for="console">Platform</label>
+          <select name="console">
+            <option value="1">Nintendo</option>
+            <option value="2">Xbox</option>
+            <option value="3">Play Station</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-between pt-3 pb-2">
+          <button type="submit" class="btn-create">Update Chatroom</button>
+        </div>
+        <div class="d-flex justify-content-between pb-2">
+          <button type="button" class="delete-chat-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="/javascript/edit-chatroom.js"></script>
+<script src="/javascript/delete-chatroom.js"></script>

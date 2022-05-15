@@ -1,0 +1,36 @@
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Project  : Video Games Chat -->
+<!-- Team     : Dark Overlords   -->
+<!-- File     : create- chatroom -->
+<!-- Date     : 05/13/2022       -->
+<!-- Modified : 05/15/2022       -->
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class="d-flex justify-content-center">
+    <form class="new-chat-form">
+      <div class="card">
+        <h3 class="card-header">Create New Chatroom</h3>
+        <div class="card-body">
+          <div class="card-title">
+            <label for="chat-title">Title</label>
+          </div>
+          <input name="chat-title" type="text" id="chat-title" maxlength="80" />
+          <div class="card-title">
+            <label for="description">Content</label>
+          </div>
+          <textarea id="description" name="description" maxlength="250"></textarea>
+          <div class="card-title">
+            <label for="console">Platform</label>
+            <select name="console">
+              <option value="1">Nintendo</option>
+              <option value="2">Xbox</option>
+              <option value="3">Play Station</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-center pt-3 pb-2">
+            <button type="submit" class="btn-create">Create</button>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>
+<script src="/javascript/add-chatroom.js"></script>

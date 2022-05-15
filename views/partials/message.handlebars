@@ -1,0 +1,22 @@
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Project  : Video Games Chat -->
+<!-- Team     : Dark Overlords   -->
+<!-- File     : message          -->
+<!-- Date     : 05/13/2022       -->
+<!-- Modified : 05/15/2022       -->
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class="messages">
+  {{#each this}}
+  <section class="message">
+        <div class="d-flex justify-content-start">
+          {{user.username}}
+        </div>
+        <div class="text-message d-flex justify-content-center">
+          {{message}}
+        </div>
+        <div class="d-flex justify-content-end">
+          {{format_date created_at}}
+        </div>
+  </section>
+  {{/each}}
+</div>

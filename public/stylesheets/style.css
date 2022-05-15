@@ -1,0 +1,233 @@
+/* --------------------------- */
+/* Project  : Video Games Chat */
+/* Team     : Dark Overlords   */
+/* File     : style.css        */
+/* Date     : 05/13/2022       */
+/* Modified : 05/15/2022       */
+/* --------------------------- */
+/* Declare constants */
+* {
+  --background: #92b1b6;
+  --body: #75828C;
+  --dark: #35455d;
+  --main: #848484;
+  --clear: #FFFFFF;
+  --btn-ok: #3997df;
+  --btn-over: #6faedf;
+  --btn-del: #e75050;
+  --btn-del-over: #e86161;
+  --btn-create: #202b4f;
+  --over: #f1c5ae;
+  --msg-odd: #ced2c2;
+  --msg-even: #bfd1df;
+  --border-radius: .9rem;
+}
+/* Style general page */
+header {
+  color:darkkhaki ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+main {
+  flex: 1;
+  padding: 1% 4%;
+}
+body, html {
+  height: 100%;
+  font-family: 'Press Start 2P';
+  color: var(--main);
+  background-color: var(--background);
+}
+/* Style links */
+a {
+  text-decoration: none;
+  color: var(--clear);
+  padding-right: 20px;
+  font-size: larger;
+}
+a:hover {
+  color: var(--over);
+  text-decoration: none;
+}
+.link {
+  font-family: 'Graduate';
+  color: var(--btn-ok);
+  padding-right: 0;
+  padding-top: 1%;
+}
+.link:hover {
+  color: var(--btn-over);
+  text-decoration: none;
+}
+/* Style titles */
+h3 {
+  font-family: 'Graduate';
+}
+.app-title {
+  font-family: 'Graduate';
+  font-size: 40px;
+  font-weight: bolder;
+  /*background-color: var(--background);*/
+  color: var(--clear);
+  /*padding: 10px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 4px 5px 8px var(--btn-over);*/
+  margin-top: 15px;
+}
+.section-title {
+  font-family: 'Graduate';
+  background-color: var(--background);
+  color: var(--clear);
+  font-weight: bolder;
+}
+.chat-title {
+  font-size:larger;
+}
+.created-by {
+  font-size: small;
+}
+/* Style input and textarea */
+textarea {
+  height: 100px;
+}
+input, textarea {
+  font-family: 'Michroma', sans-serif;
+  color: var(--body);
+  margin-right: 10px;
+  padding: 2px 5px;
+  width: 100%;
+  resize: none;
+}
+/* Style hero */
+.hero {
+  font-family: 'Graduate';
+  padding: 1% 4%;
+  background-color: var(--dark);
+}
+/* Style buttons */
+button {
+  font-family: 'Graduate';
+  background-color: var(--btn-ok);
+  border: 0;
+  padding: 1%;
+  color: var(--clear);
+  font-weight: bold;
+  transition: .1s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: var(--btn-over);
+}
+.btn-logout {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--clear);
+  font-size: larger;
+}
+.btn-logout:hover {
+  background: none;
+  color: var(--over);
+}
+.btn-auth {
+  width: 32%;
+}
+.btn-add {
+  width: 15%;
+  background-color: var(--btn-create);
+  box-shadow: 4px 6px 8px var(--main);
+}
+.btn-add:hover {
+  background-color: var(--dark);
+  box-shadow: 2px 3px 4px var(--main);
+}
+.btn-create {
+  width: 100%;
+}
+.delete-chat-btn {
+  width: 100%;
+  background-color: var(--btn-del);
+}
+.delete-chat-btn:hover {
+  background-color: var(--btn-del-over);
+}
+/* Style cards */
+.card {
+  margin: 0 0 1% 0;
+  box-shadow: 4px 8px 10px var(--main);
+}
+.card-header {
+  color: var(--clear);
+  background-color: var(--dark);
+  padding: 1%;
+  text-align: center;
+}
+.card-title {
+  font-family: 'Graduate';
+  font-weight: bolder;
+  color: var(--body);
+  margin-top: 15px;
+}
+.card-body {
+  padding: 1%;
+  background-color: var(--clear);
+}
+/* Space body cards */
+.auth-body {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.chat-body {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+/* Size forms */
+form label {
+  display: block;
+}
+.edit-chat-form, .new-chat-form {
+  width: 50%;
+}
+.login-form, .signup-form{
+  width: 23%;
+}
+/* Style chat links */
+.chat-dash {
+  font-family: 'Press Start 2P';
+  width: 100%;
+  font-size: 115%;
+  background-color: var(--dark);
+  box-shadow: 2px 4px 4px var(--main);
+}
+.chat-dash:hover {
+  box-shadow: 1px 2px 2px var(--main);
+}
+.text-message {
+  font-size: larger;
+  margin-bottom: 10px;
+  border-color: black;
+  border-radius: 10px;
+}
+.message {
+  background-color: var(--msg-even);
+  box-shadow: 1px 2px 2px var(--main);
+  border-radius: 10px;
+  padding: 1%;
+  margin-bottom: 1%;
+  width: fit-content;
+}
+.message:nth-child(odd) {
+  background-color: var(--msg-odd);
+  box-shadow: 1px 2px 2px var(--main);
+  border-color: black;
+  border-radius: 10px;
+}
+.bg-chat {
+  background-color: var(--dark);
+}
+style {
+  font-size: larger;
+}

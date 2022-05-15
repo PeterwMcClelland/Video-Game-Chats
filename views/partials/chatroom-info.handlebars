@@ -1,0 +1,22 @@
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Project  : Video Games Chat -->
+<!-- Team     : Dark Overlords   -->
+<!-- File     : chatroom-info    -->
+<!-- Date     : 05/13/2022       -->
+<!-- Modified : 05/15/2022       -->
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      {{#if loggedIn }}
+        <div class="chat-title"><a href="/chatroom/{{id}}">{{title}} - {{console.name}}</a></div>
+      {{else}}
+        <div class="chat-title"><a href="/login">{{title}} - {{console.name}}</a></div>
+      {{/if }}
+      <div class="created-by pt-1">Created by {{user.username}} on {{format_date created_at}}</div>
+    </div>
+  </div>
+  <div class="card-body">
+    {{description}}
+  </div>
+</div>

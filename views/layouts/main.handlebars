@@ -1,0 +1,42 @@
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!-- Project  : Video Games Chat -->
+<!-- Team     : Dark Overlords   -->
+<!-- File     : main             -->
+<!-- Date     : 05/13/2022       -->
+<!-- Modified : 05/15/2022       -->
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Videogames Chatrooms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Michroma&family=Press+Start+2P&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <h1 class="app-title">Video Games Chatrooms</h1>
+        <nav>
+          <a href="/">Home</a>
+          {{#if loggedIn}}
+            <a href="/dashboard">Dashboard</a>
+            <button id="logout" class="btn-logout">Logout</button>
+          {{else}}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+          {{/if}}
+        </nav>
+      </div>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
