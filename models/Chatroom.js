@@ -6,7 +6,7 @@
 /* Modified : 05/15/2022       */
 /* --------------------------- */
 // Sequelize model
-const { Model, DataTypes } = require('sequelize');
+const {Model, DataTypes} = require('sequelize');
 // Access to db connection
 const sequelize = require('../config/connection');
 // Create Chatroom model
@@ -15,46 +15,45 @@ class Chatroom extends Model {}
 Chatroom.init({
     // Define id column
     id: {
-        type:          DataTypes.INTEGER
-       ,allowNull:     false
-       ,primaryKey:    true
-       ,autoIncrement: true
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
     },
     // Define title column
     title: {
-        type:      DataTypes.STRING
-       ,allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
     },
     // Define chatroom description column
     description: {
-        type:      DataTypes.STRING
-       ,allowNull: false
-       ,validate: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
             len: [1]
         }
     },
     // Define chatroom owner column (fk)
     user_id: {
-        type: DataTypes.INTEGER
-       ,references: {
-            model: 'user'
-           ,key:   'id'
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
         }
     },
     // Define console column (fk)
     console_id: {
-        type: DataTypes.INTEGER
-       ,references: {
-            model: 'console'
-           ,key:   'id'
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'console',
+            key: 'id'
         }
     }
-},
-{
-    sequelize
-   ,freezeTableName: true
-   ,underscored:     true
-   ,modelName:       'chatroom'
+}, {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'chatroom'
 });
 // Export class Chatroom
 module.exports = Chatroom;
