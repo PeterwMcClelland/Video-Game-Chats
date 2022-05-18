@@ -3,7 +3,7 @@
 /* Team     : Dark Overlords   */
 /* File     : api/index.js     */
 /* Date     : 05/13/2022       */
-/* Modified : 05/14/2022       */
+/* Modified : 05/17/2022       */
 /* --------------------------- */
 // Access to router module
 const router = require('express').Router();
@@ -15,6 +15,7 @@ const chatroomRoutes = require('./chatroom-routes');
 const messageRoutes = require('./message-routes');
 // Access to console routes
 const consoleRoutes = require('./console-routes');
+const favoriteRoutes = require('../favorite-routes');
 // Open user routes
 router.use('/users', userRoutes);
 // Open chatroom routes
@@ -23,5 +24,8 @@ router.use('/chatrooms', chatroomRoutes);
 router.use('/messages', messageRoutes);
 // Open console routes
 router.use('/consoles', consoleRoutes);
+router.use('/favorites', favoriteRoutes);
+
+
 // Export module router
 module.exports = router;

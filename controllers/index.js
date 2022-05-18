@@ -3,7 +3,7 @@
 /* Team     : Dark Overlords       */
 /* File     : controllers/index.js */
 /* Date     : 05/13/2022           */
-/* Modified : 05/14/2022           */
+/* Modified : 05/18/2022           */
 /* ------------------------------- */
 // Access to router module
 const router = require('express').Router();
@@ -13,6 +13,10 @@ const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes.js');
 // Access to dashboard routes
 const dashboardRoutes = require('./dashboard-routes.js');
+//Access to favorite routes
+const favoriteRoutes= require ('./favorite-routes');
+//Initialize favorite routes
+router.use ('/favorite',favoriteRoutes);
 // Initialize dashboard routes
 router.use('/dashboard', dashboardRoutes);
 // Initialize home routes

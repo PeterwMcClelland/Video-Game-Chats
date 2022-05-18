@@ -29,11 +29,11 @@ Favorite.init({
             key: 'id'
         }
     },
-    // Define console column (fk)
-    console_id: {
+    
+    chatroom_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'console',
+            model: 'chatroom',
             key: 'id'
         }
     }

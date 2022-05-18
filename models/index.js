@@ -13,6 +13,9 @@ const Console = require('./Console');
 const Chatroom = require('./Chatroom');
 // Access to Comment model
 const Message = require('./Message');
+// Access to Favorite model
+const Favorite = require('./Favorite');
+
 // Create tables associations
 User.hasMany(Chatroom, {
     foreignKey: 'user_id'
@@ -38,5 +41,13 @@ User.hasMany(Message, {
 Chatroom.hasMany(Message, {
     foreignKey: 'chat_id'
 });
+Favorite.belongsTo(User,{
+    foreignKey: 'user_id'
+});
+Favorite.belongsTo(Chatroom,{
+    foreignKey: 'chatroom_id'
+});
+
+
 // Export models User, Chatroom and Message
-module.exports = { User, Chatroom, Console, Message };
+module.exports = { User, Chatroom, Console, Message, Favorite };
