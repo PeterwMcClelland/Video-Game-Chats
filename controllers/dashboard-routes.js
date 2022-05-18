@@ -50,9 +50,23 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
     .then(dbChatroomData => {
+
+        Console.findAll({
+            attributes: ['id'
+                        ,'name'
+             ]
+         })
+         .then(dbConsoleData => {
+            // Render a chatroom object into the dashboard template
+            const consoles = dbConsoleData.map(console => console.get({ plain: true }));
+            const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+            res.render('dashboard', { chatrooms, consoles, loggedIn: true });
+         })
+
+
         // Render a single chatroom object into the dashboard template
-        const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
-        res.render('dashboard', { chatrooms, loggedIn: true });
+        //const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+        //res.render('dashboard', { chatrooms, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -116,9 +130,17 @@ router.get('/edit/:id', withAuth, (req, res) => {
             res.status(404).json({ message: 'No chatroom found with this id' });
             return;
         }
-        // Render a single chatroom object into the edit chatroom template
-        const chatroom = dbChatroomData.get({ plain: true });
-        res.render('edit-chatroom', { chatroom, loggedIn: true });
+        Console.findAll({
+            attributes: ['id'
+                        ,'name'
+             ]
+         })
+         .then(dbConsoleData => {
+             // Render a console object into the create template
+             const consoles = dbConsoleData.map(console => console.get({ plain: true }));
+             const chatroom = dbChatroomData.get({ plain: true });
+             res.render('edit-chatroom', { chatroom, consoles, loggedIn: true });
+         })
     })
     .catch(err => {
         console.log(err);

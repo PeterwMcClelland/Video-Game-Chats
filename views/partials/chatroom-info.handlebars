@@ -5,10 +5,15 @@
 <!-- Date     : 05/13/2022       -->
 <!-- Modified : 05/15/2022       -->
 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+{{#unless chat}}
+  <a href="/chatroom/{{id}}">
+{{else}}
+  <a>
+{{/unless}}
 <div class="card">
   <div class="card-header">
     <div class="d-flex justify-content-between">
-      <div class="chat-title"><a href="/chatroom/{{id}}">{{title}} - {{console.name}}</a></div>
+      <div class="chat-title">   {{title}} - {{console.name}}  </div>
       <div class="created-by pt-1">Created by {{user.username}} on {{format_date created_at}}</div>
     </div>
   </div>
@@ -16,3 +21,4 @@
     {{description}}
   </div>
 </div>
+</a>

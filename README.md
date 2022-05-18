@@ -33,12 +33,13 @@ Clone repository to local machine to use local.
 ## Usage
 
 Execute into mysql source db.schema to create the dabase.
+Execute into mysql source db.seed to create the dabase.
 Execute on project path the following command "npm start" to create the database structure (tables).
 Open Heroku link to view the deployed project.
 
 ## Live application
 
-******************** PENDING ********************
+https://secret-coast-34340.herokuapp.com
 
 ## Contributing
 

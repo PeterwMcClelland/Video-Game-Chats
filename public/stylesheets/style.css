@@ -7,17 +7,18 @@
 /* --------------------------- */
 /* Declare constants */
 * {
-  --background: #92b1b6;
+  --background: linear-gradient(to right, #133461, #191f2e);
+  --hero: linear-gradient(to left, #133461, #191f2e);
   --body: #75828C;
   --dark: #35455d;
-  --main: #848484;
+  --shadow: #7b8f9c;
   --clear: #FFFFFF;
-  --btn-ok: #3997df;
-  --btn-over: #6faedf;
-  --btn-del: #e75050;
-  --btn-del-over: #e86161;
+  --btn-over: #1354a9;
+  --btn-ok: #0b4896;
+  --btn-del: #e93535;
+  --btn-del-over: #e14c4c;
   --btn-create: #202b4f;
-  --over: #f1c5ae;
+  --over: #daf50f;
   --msg-odd: #ced2c2;
   --msg-even: #bfd1df;
   --border-radius: .9rem;
@@ -32,13 +33,13 @@ header {
 }
 main {
   flex: 1;
-  padding: 1% 4%;
+  padding: 1% 3%;
 }
 body, html {
   height: 100%;
   font-family: 'Press Start 2P';
-  color: var(--main);
-  background-color: var(--background);
+  color: var(--shadow);
+  background: var(--background);
 }
 /* Style links */
 a {
@@ -74,11 +75,12 @@ h3 {
   /*padding: 10px 20px;
   border-radius: var(--border-radius);
   box-shadow: 4px 5px 8px var(--btn-over);*/
-  margin-top: 15px;
+  margin-top: 5%;
+  margin-bottom: 1%;
 }
 .section-title {
   font-family: 'Graduate';
-  background-color: var(--background);
+  /*background-color: var(--background);*/
   color: var(--clear);
   font-weight: bolder;
 }
@@ -103,8 +105,11 @@ input, textarea {
 /* Style hero */
 .hero {
   font-family: 'Graduate';
-  padding: 1% 4%;
+  padding: 1% 3%;
   background-color: var(--dark);
+  background-image: url("../images/controller.jpg");
+  /*background-size: 100%;*/
+  background-position: 100%;
 }
 /* Style buttons */
 button {
@@ -113,13 +118,14 @@ button {
   border: 0;
   padding: 1%;
   color: var(--clear);
-  font-weight: bold;
   transition: .1s;
   cursor: pointer;
   border-radius: 5px;
+  box-shadow: 1px 2px 3px var(--shadow);
 }
 button:hover {
   background-color: var(--btn-over);
+  box-shadow: 1px 1px 1px var(--shadow);
 }
 .btn-logout {
   background: none;
@@ -127,22 +133,25 @@ button:hover {
   cursor: pointer;
   color: var(--clear);
   font-size: larger;
+  font-weight: normal;
+  box-shadow: 0 0 0 var(--shadow);
 }
 .btn-logout:hover {
   background: none;
   color: var(--over);
+  box-shadow: 0 0 0 var(--shadow);
 }
 .btn-auth {
   width: 32%;
 }
 .btn-add {
   width: 15%;
-  background-color: var(--btn-create);
-  box-shadow: 4px 6px 8px var(--main);
+  background-color: var(--btn-ok);
+  box-shadow: 1px 2px 3px var(--shadow);
 }
 .btn-add:hover {
-  background-color: var(--dark);
-  box-shadow: 2px 3px 4px var(--main);
+  background-color: var(--btn-over);
+  box-shadow: 1px 1px 1px var(--shadow);
 }
 .btn-create {
   width: 100%;
@@ -156,12 +165,16 @@ button:hover {
 }
 /* Style cards */
 .card {
-  margin: 0 0 1% 0;
-  box-shadow: 4px 8px 10px var(--main);
+  color: var(--dark);
+  font-size: normal;
+  box-shadow: 0px 0px 8px var(--shadow);
+}
+.card:hover {
+  box-shadow: 0px 0px 10px var(--over);
 }
 .card-header {
   color: var(--clear);
-  background-color: var(--dark);
+  background: var(--hero);
   padding: 1%;
   text-align: center;
 }
@@ -199,11 +212,12 @@ form label {
   font-family: 'Press Start 2P';
   width: 100%;
   font-size: 115%;
-  background-color: var(--dark);
-  box-shadow: 2px 4px 4px var(--main);
+  background: var(--hero);
+  box-shadow: 0px 0px 10px var(--shadow);
 }
 .chat-dash:hover {
-  box-shadow: 1px 2px 2px var(--main);
+  background: var(--hero);
+  box-shadow: 0px 0px 10px var(--over);
 }
 .text-message {
   font-size: larger;
@@ -213,7 +227,7 @@ form label {
 }
 .message {
   background-color: var(--msg-even);
-  box-shadow: 1px 2px 2px var(--main);
+  box-shadow: 1px 2px 2px var(--shadow);
   border-radius: 10px;
   padding: 1%;
   margin-bottom: 1%;
@@ -221,12 +235,14 @@ form label {
 }
 .message:nth-child(odd) {
   background-color: var(--msg-odd);
-  box-shadow: 1px 2px 2px var(--main);
+  box-shadow: 1px 2px 2px var(--shadow);
   border-color: black;
   border-radius: 10px;
+  text-align: end;
 }
 .bg-chat {
-  background-color: var(--dark);
+  /*background-color: var(--dark);*/
+  background: var(--hero);
 }
 style {
   font-size: larger;
