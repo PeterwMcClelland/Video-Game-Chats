@@ -12,7 +12,7 @@ const { User, Console, Chatroom } = require('../../models');
 // Route to get all consoles
 router.get('/', (req, res) => {
     // Access to Console model to get all consoles
-    Console.findAll({})
+    Console.findAll({attributes: ['id','name']})
     .then(dbConsoleData => res.json(dbConsoleData))
     .catch(err => {
         console.log(err);

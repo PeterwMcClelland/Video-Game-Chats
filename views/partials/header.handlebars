@@ -1,0 +1,17 @@
+<div>
+    <h1 class="app-title">Video Games Chatrooms</h1>
+    <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+            <a href="/dashboard">Dashboard</a>
+            <button id="logout" class="btn-logout">Logout</button>
+        {{else}}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        {{/if}}
+        {{consoles}}
+        {{#each consoles as |console|}}
+            <p>Hola Mundos</p>
+        {{/each}}
+    </nav>
+</div>

@@ -29,6 +29,9 @@
             <a href="/login">Login</a>
             <a href="/signup">Sign Up</a>
           {{/if}}
+          {{#each consoles as |console|}}
+            {{console.name}}
+          {{/each}}
         </nav>
       </div>
     </header>

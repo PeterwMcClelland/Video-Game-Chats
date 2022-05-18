@@ -11,6 +11,15 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 // Access to Chatroom, Console, User and Message models
 const { Chatroom, Console, User, Message } = require('../models');
+const consoles = function() {
+    let con = [{id: 1, name: "Nintendo"}
+              ,{id: 2, name: "Xbox"}
+              ,{id: 3, name: "Play Station"}];
+    return Console.findAll({});
+        // Render a console object into the create template
+        //return dbConsoleData.map(console => console.get({ plain: true }));
+        //return "Sega";
+};
 // Route to get all chatrooms
 router.get('/', (req, res) => {
     // Access to Chatroom model to get all chatrooms
@@ -44,10 +53,15 @@ router.get('/', (req, res) => {
             }
         ]
     })
+    
     .then(dbChatroomData => {
         // Render a single chatroom object into the homepage template
-        const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
-        res.render('homepage', { chatrooms, loggedIn: req.session.loggedIn });
+        Console.findAll({})
+        .then(consoleData => {
+          const consoles = consoleData.map(console => console.get({ plain: true }));
+          const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+          res.render('homepage', { chatrooms, consoles, loggedIn: req.session.loggedIn });
+        })
     })
     .catch(err => {
         console.log(err);

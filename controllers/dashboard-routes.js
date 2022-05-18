@@ -3,7 +3,7 @@
 /* Team     : Dark Overlords      */
 /* File     : dashboard-routes.js */
 /* Date     : 05/13/2022          */
-/* Modified : 05/15/2022          */
+/* Modified : 05/16/2022          */
 /* ------------------------------ */
 // Access to router module
 const router = require('express').Router();
@@ -61,7 +61,20 @@ router.get('/', withAuth, (req, res) => {
 });
 // Route to get create chatroom page
 router.get('/create', withAuth, (req, res) => {
-    res.render('create-chatroom', { loggedIn: true });
+    Console.findAll({
+       attributes: ['id'
+                   ,'name'
+        ]
+    })
+    .then(dbChatroomData => {
+        // Render a console object into the create template
+        const consoles = dbChatroomData.map(console => console.get({ plain: true }));
+        res.render('create-chatroom', { consoles, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 // Route to get chatroom by id to edit
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -93,7 +106,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
             },
             {
                 model: Console
-               ,attributes: ['name']
+               ,attributes: ['id'
+                            ,'name']
             }
         ]
     })
