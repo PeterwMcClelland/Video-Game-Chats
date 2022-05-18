@@ -45,7 +45,7 @@ Favorite.belongsTo(User,{
     foreignKey: 'user_id'
 });
 Favorite.belongsTo(Chatroom,{
-    foreignKey: 'chatroom_id'
+    foreignKey: 'chat_id'
 });
 
 

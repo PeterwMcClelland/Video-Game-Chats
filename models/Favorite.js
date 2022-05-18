@@ -30,7 +30,7 @@ Favorite.init({
         }
     },
     
-    chatroom_id: {
+    chat_id: {
         type: DataTypes.INTEGER,
         references: {
             model: 'chatroom',
