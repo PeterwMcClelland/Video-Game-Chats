@@ -70,17 +70,12 @@ h3 {
   font-family: 'Graduate';
   font-size: 40px;
   font-weight: bolder;
-  /*background-color: var(--background);*/
   color: var(--clear);
-  /*padding: 10px 20px;
-  border-radius: var(--border-radius);
-  box-shadow: 4px 5px 8px var(--btn-over);*/
   margin-top: 5%;
   margin-bottom: 1%;
 }
 .section-title {
   font-family: 'Graduate';
-  /*background-color: var(--background);*/
   color: var(--clear);
   font-weight: bolder;
 }
@@ -108,7 +103,6 @@ input, textarea {
   padding: 1% 3%;
   background-color: var(--dark);
   background-image: url("../images/controller.jpg");
-  /*background-size: 100%;*/
   background-position: 100%;
 }
 /* Style buttons */
@@ -241,7 +235,6 @@ form label {
   text-align: end;
 }
 .bg-chat {
-  /*background-color: var(--dark);*/
   background: var(--hero);
 }
 style {
