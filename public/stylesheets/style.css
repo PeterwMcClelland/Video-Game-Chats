@@ -3,12 +3,12 @@
 /* Team     : Dark Overlords   */
 /* File     : style.css        */
 /* Date     : 05/13/2022       */
-/* Modified : 05/15/2022       */
+/* Modified : 05/19/2022       */
 /* --------------------------- */
 /* Declare constants */
 * {
   --background: linear-gradient(to right, #145287, #412748);
-  --hero: linear-gradient(to left, #145287, #412748);
+  --back: linear-gradient(to left, #145287, #412748);
   --body: #75828C;
   --dark: #35455d;
   --shadow: #7b8f9c;
@@ -89,7 +89,7 @@ h3 {
 textarea {
   height: 100px;
 }
-input, textarea {
+input, textarea, select {
   font-family: 'Michroma', sans-serif;
   color: var(--body);
   margin-right: 10px;
@@ -172,7 +172,7 @@ button:hover {
 }
 .card-header {
   color: var(--clear);
-  background: var(--hero);
+  background: var(--back);
   padding: 1%;
   text-align: center;
 }
@@ -210,11 +210,11 @@ form label {
   font-family: 'Press Start 2P';
   width: 100%;
   font-size: 115%;
-  background: var(--hero);
+  background: var(--back);
   box-shadow: 0px 0px 10px var(--shadow);
 }
 .chat-dash:hover {
-  background: var(--hero);
+  background: var(--back);
   box-shadow: 0px 0px 10px var(--over);
 }
 .text-message {
@@ -239,7 +239,7 @@ form label {
   text-align: end;
 }
 .bg-chat {
-  background: var(--hero);
+  background: var(--back);
 }
 style {
   font-size: larger;

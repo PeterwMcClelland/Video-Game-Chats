@@ -12,7 +12,7 @@ const sequelize = require('../config/connection');
 // Access to helpers
 const withAuth = require('../utils/auth');
 // Access to Chatroom, User and Message models
-const { Chatroom, Console, User, Message } = require('../models');
+const { Chatroom, Console, User } = require('../models');
 // Route to get all chatrooms
 router.get('/', withAuth, (req, res) => {
     // Access to Chatroom model to get all chatrooms
@@ -28,18 +28,6 @@ router.get('/', withAuth, (req, res) => {
         ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
-            {
-                model: Message
-               ,attributes: ['id'
-                            ,'message'
-                            ,'chat_id'
-                            ,'user_id'
-                            ,'created_at']
-               ,include: {
-                    model: User
-                   ,attributes: ['username']
-                }
-            },
             {
                 model: User
                ,attributes: ['username']
@@ -104,18 +92,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ]
         // JOIN to Message, Console and User to get their fields
        ,include: [
-            {
-                model: Message
-               ,attributes: ['id'
-                            ,'message'
-                            ,'chat_id'
-                            ,'user_id'
-                            ,'created_at']
-               ,include: {
-                    model: User
-                   ,attributes: ['username']
-                }
-            },
             {
                 model: User
                ,attributes: ['username']

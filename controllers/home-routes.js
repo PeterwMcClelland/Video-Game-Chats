@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
         ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
-            {
+            /*{
                 model: Message
                ,attributes: ['id'
                             ,'message'
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
                     model: User
                    ,attributes: ['username']
                 }
-            },
+            },*/
             {
                 model: User
                ,attributes: ['username']
@@ -138,7 +138,7 @@ router.get('/chatroom/console/:id', (req, res) => {
        ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
-            {
+            /*{
                 model: Message
                ,attributes: ['id'
                             ,'message'
@@ -149,7 +149,7 @@ router.get('/chatroom/console/:id', (req, res) => {
                     model: User
                    ,attributes: ['username']
                 }
-            },
+            },*/
             {
                 model: User
                 ,attributes: ['username']
