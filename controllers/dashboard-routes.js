@@ -58,11 +58,17 @@ router.get('/', withAuth, (req, res) => {
              ]
          })
          .then(dbConsoleData => {
-            // Render a chatroom object into the dashboard template
-            const consoles = dbConsoleData.map(console => console.get({ plain: true }));
-            const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
-            res.render('dashboard', { chatrooms, consoles, loggedIn: true });
-         })
+            User.findOne({
+                where: {id: req.session.user_id}
+            })
+                .then(dbUserData => {
+                    // Render a chatroom object into the dashboard template
+                    const user = dbUserData.get({ plain: true });
+                    const consoles = dbConsoleData.map(console => console.get({ plain: true }));
+                    const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+                    res.render('dashboard', { chatrooms, consoles, user, loggedIn: true });
+            })
+        })
     })
     .catch(err => {
         console.log(err);
