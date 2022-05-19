@@ -5,14 +5,25 @@
 <!-- Date     : 05/13/2022       -->
 <!-- Modified : 05/18/2022       -->
 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
-{{#if chatrooms.length}}
-  <section>
-    <h1 class="section-title mb-3 d-flex justify-content-end">Your Chatrooms</h1>
-      {{#each chatrooms as |chatroom|}}
-        <a href="/dashboard/edit/{{chatroom.id}}"><button class="chat-dash d-flex justify-content-between"><div>{{title}} - {{console.name}}</div><div>{{format_date created_at}}</div></button></a>
-      {{/each}}
-  </section>
-{{/if}}
-<div class="d-flex justify-content-center">
-  <button class="btn-add" onclick="window.location.href='/dashboard/create'">Create New Chatroom</button>
+<h1 class="section-title mb-3 d-flex justify-content-end">My Favorite</h1>
+{{#each favorites as |favorite|}}
+ <div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      {{#if loggedIn }}
+        <div class="chat-title"><a href="/chatroom/{{favorite.chatroom.id}}">{{favorite.chatroom.title}} </a>
+        
+        </div>
+       
+      {{else}}
+        <div class="chat-title"><a href="/login">{{favorite.chatroom.title}} - {{console.name}}</a></div> 
+      
+      {{/if }}
+      <div class="created-by pt-1">Created by {{user.username}} on {{format_date created_at}}</div>
+    </div>
+  </div>
+  <div class="card-body">
+    {{favorite.chatroom.description}}
+  </div>
 </div>
+{{/each}}

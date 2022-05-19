@@ -11,6 +11,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 // Access to Chatroom, Console, User and Message models
 const { Chatroom, Console, User, Message, Favorite } = require('../models');
+const withAuth = require('../utils/auth');
 // Route to get all chatrooms
 router.get('/', (req, res) => {
     // Access to Chatroom model to get all chatrooms
@@ -120,48 +121,27 @@ router.get('/chatroom/:id', (req, res) => {
 });
 
 
-router.get('/favorite', (req, res) => {
+router.get('/favorite', withAuth, (req, res) => {
     // Access to Chatroom model to get a chatroom by id
     Favorite.findAll({
-        where: { id: req.params.id},
-       attributes: ['id'
-                    ,'title'
-                    ,'description'
-                    ,'created_at']
-        // JOIN to Message, Console and User to get their fields
+        where: {
+            user_id: req.session.user_id
+        }
        ,include: [
             {
-                model: Message
-               ,attributes: ['id'
-                            ,'message'
-                            ,'chat_id'
-                            ,'user_id'
-                            ,'created_at']
-               ,include: {
-                    model: User
-                   ,attributes: ['username']
-                }
-            },
-            {
-                model: User
-                ,attributes: ['username']
-            },
-            {
-                model: Console
-                ,attributes: ['name']
+                model: Chatroom
             }
         ]
-        ,order: [[Message, 'created_at', 'ASC']]
     })
-    .then(dbChatroomData => {
-        if (!dbChatroomData) {
+    .then(dbFavoriteData => {
+        if (!dbFavoriteData) {
             res.status(404).json({ message: 'No chatroom found with this id' });
             return;
         }
         // Render a single chatroom object into the single chatroom template
-        const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+        const favorites = dbFavoriteData.map(favorite => favorite.get({ plain: true }));
 
-        res.render('favorite', { chatrooms, loggedIn: req.session.loggedIn });
+        res.render('favorite', { favorites, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
         console.log(err);
