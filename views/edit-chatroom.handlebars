@@ -3,7 +3,7 @@
 <!-- Team     : Dark Overlords   -->
 <!-- File     : edit-chatroom    -->
 <!-- Date     : 05/13/2022       -->
-<!-- Modified : 05/16/2022       -->
+<!-- Modified : 05/19/2022       -->
 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 <div class="d-flex justify-content-center">
   <form class="edit-chat-form">
@@ -18,6 +18,14 @@
           <label for="description">Description</label>
         </div>
         <textarea id="description" name="description" maxlength="250">{{chatroom.description}}</textarea>
+        <div class="card-title">
+          <label for="console">Platform</label>
+          <select name="console">
+            {{#each consoles as |console|}}
+              <option value={{console.id}}>{{console.name}}</option>
+            {{/each}}
+          </select>
+        </div>
         <div class="d-flex justify-content-between pt-3 pb-2">
           <button type="submit" class="btn-create">Update Chatroom</button>
         </div>

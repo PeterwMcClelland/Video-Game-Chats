@@ -25,6 +25,7 @@ router.get('/', withAuth, (req, res) => {
                     ,'description'
                     ,'created_at'
         ]
+        ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
             {
@@ -62,11 +63,6 @@ router.get('/', withAuth, (req, res) => {
             const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
             res.render('dashboard', { chatrooms, consoles, loggedIn: true });
          })
-
-
-        // Render a single chatroom object into the dashboard template
-        //const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
-        //res.render('dashboard', { chatrooms, loggedIn: true });
     })
     .catch(err => {
         console.log(err);

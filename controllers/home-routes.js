@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
                     ,'description'
                     ,'created_at'
         ]
+        ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
             {
@@ -44,7 +45,6 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    
     .then(dbChatroomData => {
         // Render a single chatroom object into the homepage template
         Console.findAll({})
@@ -107,7 +107,6 @@ router.get('/chatroom/:id', (req, res) => {
                 ,attributes: ['name']
             }
         ]
-        ,order: [[Message, 'created_at', 'ASC']]
     })
     .then(dbChatroomData => {
         if (!dbChatroomData) {
@@ -136,6 +135,7 @@ router.get('/chatroom/console/:id', (req, res) => {
                     ,'title'
                     ,'description'
                     ,'created_at']
+       ,order: [['created_at', 'DESC']]
         // JOIN to Message, Console and User to get their fields
        ,include: [
             {
@@ -159,7 +159,6 @@ router.get('/chatroom/console/:id', (req, res) => {
                 ,attributes: ['name']
             }
         ]
-        ,order: [[Message, 'created_at', 'ASC']]
     })
     .then(dbChatroomData => {
         // Get console name
