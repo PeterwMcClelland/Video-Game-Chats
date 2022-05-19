@@ -14,9 +14,7 @@ const homeRoutes = require('./home-routes.js');
 // Access to dashboard routes
 const dashboardRoutes = require('./dashboard-routes.js');
 //Access to favorite routes
-const favoriteRoutes= require ('./favorite-routes');
-//Initialize favorite routes
-router.use ('/favorite',favoriteRoutes);
+
 // Initialize dashboard routes
 router.use('/dashboard', dashboardRoutes);
 // Initialize home routes

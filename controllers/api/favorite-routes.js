@@ -1,10 +1,23 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
-const {Chatroom, User, Favorite} = require('../models');
+const {Chatroom, User, Favorite} = require('../../models');
 
 router.get('/', (req, res) => {
-    Favorite.findAll().then(dbFavoriteData => res.json(dbFavoriteData)).catch(err => {
+    Favorite.findAll({
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }, {
+                model: Chatroom,
+                attributes: ['title']
+            }
+        ]
+        
+    }
+
+    ).then(dbFavoriteData => res.json(dbFavoriteData)).catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
@@ -24,7 +37,7 @@ router.get('/:id', (req, res) => { // Access to Favorite model to get a favorite
                 attributes: ['username']
             }, {
                 model: Chatroom,
-                attributes: ['name']
+                attributes: ['title']
             }
         ]
     }).then(dbFavoriteData => {
@@ -41,10 +54,11 @@ router.get('/:id', (req, res) => { // Access to Favorite model to get a favorite
 // Route to add a favorite chatroom
 router.post('/', withAuth, (req, res) => { // Access to Chatroom model to create a chatroom
     Favorite.create({
-       console_id: req.body.console_id, 
+       chat_id: req.body.chat_id, 
         user_id: req.session.user_id
     })
         .then(dbFavoriteData => res.json(dbFavoriteData))
+        
         .catch(err => {
         console.log(err);
         res.status(500).json(err);

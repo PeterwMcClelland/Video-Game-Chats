@@ -10,7 +10,7 @@ const router = require('express').Router();
 // Access to db connection
 const sequelize = require('../config/connection');
 // Access to Chatroom, Console, User and Message models
-const { Chatroom, Console, User, Message } = require('../models');
+const { Chatroom, Console, User, Message, Favorite } = require('../models');
 // Route to get all chatrooms
 router.get('/', (req, res) => {
     // Access to Chatroom model to get all chatrooms
@@ -118,5 +118,57 @@ router.get('/chatroom/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
+router.get('/favorite', (req, res) => {
+    // Access to Chatroom model to get a chatroom by id
+    Favorite.findAll({
+        where: { id: req.params.id},
+       attributes: ['id'
+                    ,'title'
+                    ,'description'
+                    ,'created_at']
+        // JOIN to Message, Console and User to get their fields
+       ,include: [
+            {
+                model: Message
+               ,attributes: ['id'
+                            ,'message'
+                            ,'chat_id'
+                            ,'user_id'
+                            ,'created_at']
+               ,include: {
+                    model: User
+                   ,attributes: ['username']
+                }
+            },
+            {
+                model: User
+                ,attributes: ['username']
+            },
+            {
+                model: Console
+                ,attributes: ['name']
+            }
+        ]
+        ,order: [[Message, 'created_at', 'ASC']]
+    })
+    .then(dbChatroomData => {
+        if (!dbChatroomData) {
+            res.status(404).json({ message: 'No chatroom found with this id' });
+            return;
+        }
+        // Render a single chatroom object into the single chatroom template
+        const chatrooms = dbChatroomData.map(chatroom => chatroom.get({ plain: true }));
+
+        res.render('favorite', { chatrooms, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+
 // Export module router
 module.exports = router;
