@@ -75,6 +75,6 @@ MIT License - A short and simple permissive license with conditions only requiri
 
 ## Screenshots
     
-![Server](/assets/images/server.jpg)
-![Login](/assets/images/login.jpg)
-![Chatroom](/assets/images/chatroom.jpg)
+![Server](./public/images/server.png)
+![Login](./public/images/login.png)
+![Chatroom](./public/images/chatroom.png)
