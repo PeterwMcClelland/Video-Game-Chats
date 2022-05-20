@@ -5,11 +5,11 @@
 /* Date     : 05/13/2022       */
 /* Modified : 05/19/2022       */
 /* --------------------------- */
-// Call moment module to use
-let moment = require("moment");
+// Call date-fs module to use
+const dayjs = require("dayjs");
 // Methods to get date format
 module.exports = {
     format_date: date => {
-        return `${moment(date).format("LLL")}`;
+        return dayjs(date).format('MMMM D, YYYY h:mm a');
     }
 }
