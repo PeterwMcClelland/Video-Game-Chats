@@ -39,7 +39,7 @@ function getRecentMessages() {
         if (!document.querySelector('input[name="message-body"]').value.trim()){
             document.location.reload();
         };
-    }, 5000);
+    }, 20000);
 };
 // Call function to begin, first getting the current day and time
 getRecentMessages();

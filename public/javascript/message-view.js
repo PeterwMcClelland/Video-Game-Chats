@@ -9,7 +9,7 @@
 function getRecentMessages() {
     setInterval(function(){
             document.location.reload();
-    }, 3000);
+    }, 20000);
 };
 // Call function to begin, first getting the current day and time
 getRecentMessages();
