@@ -3,11 +3,11 @@
 <!-- Team     : Dark Overlords   -->
 <!-- File     : dashboard        -->
 <!-- Date     : 05/13/2022       -->
-<!-- Modified : 05/15/2022       -->
+<!-- Modified : 05/18/2022       -->
 <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 {{#if chatrooms.length}}
   <section>
-    <h1 class="section-title mb-3 d-flex justify-content-end">Your Chatrooms</h1>
+    <h1 class="section-title mb-3 d-flex justify-content-end">Your Chatrooms - {{user.username}}</h1>
       {{#each chatrooms as |chatroom|}}
         <a href="/dashboard/edit/{{chatroom.id}}"><button class="chat-dash d-flex justify-content-between"><div>{{title}} - {{console.name}}</div><div>{{format_date created_at}}</div></button></a>
       {{/each}}
