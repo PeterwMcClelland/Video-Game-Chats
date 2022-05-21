@@ -1,6 +1,8 @@
+document.getElementById('addFavorite').addEventListener('change', addFavorite);
 // Function to add favorite
-async function addFavorite (event){
-    event.preventDefault();
+async function addFavorite (){
+    //event.preventDefault();
+    console.log(this);
    
     const user_id = 1;
     const chat_id  = 5;
@@ -15,9 +17,10 @@ async function addFavorite (event){
     });
     // Check the response status
     if (response.ok) {
-        document.location.replace('/favorites');
+       // document.location.replace('/favorite');
+
     } else {
         alert("Unable to add this chat to favorite");
     };
 };
-document.querySelector('#addFavorite').addEventListener('click', addFavorite);
+

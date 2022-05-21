@@ -27,7 +27,7 @@
              <a href="/favorite">Favorite</a>
              <select name="addFavorite" id="addFavorite">
               {{#each chatrooms as |chatroom|}}
-               <a href="/chatroom/{{chatroom.id}}">Favorite<option  value={{chatroom.id}}>{{chatroom.title}}</option></a>
+               <a  href="/chatroom/{{chatroom.id}}">Favorite<option   value={{chatroom.id}} >{{chatroom.title}}</option></a>
               {{/each}}
             </select>
             <button id="logout" class="btn-logout">Logout</button>
@@ -57,6 +57,7 @@
     </main>
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
+      <script src="/javascript/add-favorite.js"></script>
     {{/if}}
   </body>
 </html>
