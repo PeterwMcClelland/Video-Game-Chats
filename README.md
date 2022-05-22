@@ -10,7 +10,7 @@ Video Games chatrooms site where gamers can create their game chatrooms and chat
 
 - JavaScript
 - Node
-- Express (Sequelize, Mysql2, Handlebars, Session, Bcrypt)
+- Express (Sequelize, Mysql2, Handlebars, Session, Bcrypt, Dayjs)
 - Mysql
 - MVC Paradigm
 
